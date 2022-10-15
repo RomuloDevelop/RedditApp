@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
-import {POST_CATEGORY} from '../config';
-import {getPosts} from '../services';
+import {POST_CATEGORY} from '../config/constants';
+import {getPosts} from '../services/index';
 import {IPagination, IPost} from '../types';
 
 const PAGE_LIMIT = 8;
@@ -10,9 +10,10 @@ export const usePosts = (category: POST_CATEGORY) => {
   const [posts, setPosts] = useState<IPost[]>([]);
 
   const fetchData = useCallback(async () => {
-    const params: IPagination = lastPostName
-      ? {after: lastPostName, limit: PAGE_LIMIT}
-      : {limit: PAGE_LIMIT};
+    const params: IPagination = {limit: PAGE_LIMIT};
+    if (lastPostName) {
+      params.after = lastPostName;
+    }
 
     const result = await getPosts(category, params);
     if (lastPostName) {
@@ -20,7 +21,7 @@ export const usePosts = (category: POST_CATEGORY) => {
       return;
     }
     setPosts(result);
-  }, [posts, lastPostName, category]);
+  }, [lastPostName, category]);
 
   useEffect(() => {
     fetchData().then();

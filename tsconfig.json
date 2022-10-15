@@ -5,6 +5,18 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "target": "esnext",
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+        "components/*": ["src/components/*"],
+        "config/*": ["src/config/*"],
+        "containers/*": ["src/containers/*"],
+        "hooks/*": ["src/hooks/*"],
+        "services/*": ["src/services/*"],
+        "navigation/*": ["src/navigation/*"],
+        "store/*": ["src/store/*"],
+        "types": ["src/types"]
+    },                             /* Skip type checking all .d.ts files. */
   }
 }

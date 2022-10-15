@@ -5,5 +5,4 @@ const axiosInstance = axios.create({
   responseType: 'json',
   baseURL: 'https://api.reddit.com/r/pics',
 });
-
 export default axiosInstance;

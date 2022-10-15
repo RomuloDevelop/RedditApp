@@ -1,1 +1,1 @@
-export * from './redditApi';
+export {getPosts} from './redditApi';
