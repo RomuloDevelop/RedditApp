@@ -19,7 +19,7 @@ const App = () => (
     <StatusBar
       animated={true}
       barStyle={'light-content'}
-      backgroundColor={PURPLE}
+      backgroundColor="transparent"
       showHideTransition="fade"
       translucent={true}
     />

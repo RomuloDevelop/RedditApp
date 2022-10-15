@@ -6,7 +6,12 @@ import axiosInstance from './interceptor';
 dayjs.extend(relativeTime);
 
 type Response = {
-  data: {data: {children: {data: IPost}[]}};
+  data: {
+    data: {
+      after: string;
+      children: {data: IPost}[];
+    };
+  };
 };
 export async function getPosts(category: POST_CATEGORY, params: IPagination) {
   try {
@@ -16,12 +21,22 @@ export async function getPosts(category: POST_CATEGORY, params: IPagination) {
         params,
       },
     );
-    return listing.data.data.children.map(item => ({
+
+    const {children, after} = listing.data.data;
+
+    const posts = children.map((item, pageIndex) => ({
       ...item.data,
-      created: dayjs.unix(item.data.created).fromNow(),
+      thumbnail:
+        (item.data.thumbnail as string).search(/^(https|http)/) === 0
+          ? item.data.thumbnail
+          : null,
+      pageIndex,
+      created: dayjs.unix(item.data.created as number).fromNow(),
     }));
+
+    return {posts, after};
   } catch (err) {
     console.error(err);
-    return [];
+    return {posts: [], after: ''};
   }
 }

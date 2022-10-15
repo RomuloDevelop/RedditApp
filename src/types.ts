@@ -1,7 +1,7 @@
 export interface IPost {
   name: string;
   title: string;
-  thumbnail: string;
+  thumbnail: string | null;
   thumbnail_width: number;
   thumbnail_height: number;
   author: string;
@@ -9,7 +9,8 @@ export interface IPost {
   score: number;
   num_comments: number;
   id: string;
-  created: number;
+  created: number | string;
+  pageIndex?: number;
 }
 
 export interface IPagination {

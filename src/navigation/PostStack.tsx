@@ -6,13 +6,13 @@ import {Top} from '../containers/Top';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {PURPLE} from 'config/colors';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {Platform} from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
 export const PostStack = () => {
   const safeArea = useSafeAreaInsets();
-  const paddingTop = Platform.OS === 'ios' ? safeArea.top : 0;
+  const paddingTop = safeArea.top;
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -30,10 +30,34 @@ export const PostStack = () => {
           backgroundColor: 'white',
         },
       }}>
-      <Tab.Screen name="Hot" component={Hot} />
-      <Tab.Screen name="News" component={News} />
-      <Tab.Screen name="Controversial" component={Controversial} />
-      <Tab.Screen name="Top" component={Top} />
+      <Tab.Screen
+        name="Hot"
+        options={{
+          lazy: true,
+        }}
+        component={Hot}
+      />
+      <Tab.Screen
+        name="News"
+        options={{
+          lazy: true,
+        }}
+        component={News}
+      />
+      <Tab.Screen
+        name="Arguable"
+        options={{
+          lazy: true,
+        }}
+        component={Controversial}
+      />
+      <Tab.Screen
+        name="Top"
+        options={{
+          lazy: true,
+        }}
+        component={Top}
+      />
     </Tab.Navigator>
   );
 };

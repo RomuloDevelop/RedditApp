@@ -35,6 +35,5 @@ const styles = StyleSheet.create({
   time: {
     color: GREY,
     fontSize: 13,
-    lineHeight: 0,
   },
 });
