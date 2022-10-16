@@ -1,4 +1,10 @@
-import {BASE_URL, ITEMS_PER_PAGE, PAGES_LIMIT, POSTS_LIMIT} from '../constants';
+import {
+  BASE_URL,
+  ITEMS_PER_PAGE,
+  PAGES_LIMIT,
+  POSTS_LIMIT,
+  HEADER_PADDING_TOP,
+} from '../constants';
 
 describe('constants', () => {
   it('should have correct data type', () => {
@@ -6,5 +12,6 @@ describe('constants', () => {
     expect(typeof ITEMS_PER_PAGE).toBe('number');
     expect(typeof PAGES_LIMIT).toBe('number');
     expect(typeof POSTS_LIMIT).toBe('number');
+    expect(typeof HEADER_PADDING_TOP).toBe('number');
   });
 });

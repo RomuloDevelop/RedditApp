@@ -22,7 +22,7 @@ export const Navigation = () => (
           name={POST}
           options={{
             headerTintColor: PURPLE,
-            headerTitleStyle: {color: 'black'},
+            headerTitleStyle: {color: 'black', fontSize: 15},
           }}
           component={WebViewPost}
         />

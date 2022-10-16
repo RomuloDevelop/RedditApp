@@ -6,12 +6,13 @@ import {Top} from '../containers/Top';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {PURPLE} from 'config/colors';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {HEADER_PADDING_TOP} from 'config/constants';
 
 const Tab = createMaterialTopTabNavigator();
 
 export const PostStack = () => {
   const safeArea = useSafeAreaInsets();
-  const paddingTop = safeArea.top;
+  const paddingTop = safeArea.top + HEADER_PADDING_TOP;
 
   return (
     <Tab.Navigator
