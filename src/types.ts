@@ -10,9 +10,14 @@ export interface IPost {
   num_comments: number;
   id: string;
   created: number | string;
-  pageIndex?: number;
 }
 
+export type TRedditResponse = {
+  data: {
+    after: string;
+    children: {data: IPost}[];
+  };
+};
 export interface IPagination {
   after?: string;
   limit: number;

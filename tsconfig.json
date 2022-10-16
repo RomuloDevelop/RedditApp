@@ -15,8 +15,9 @@
         "hooks/*": ["src/hooks/*"],
         "services/*": ["src/services/*"],
         "navigation/*": ["src/navigation/*"],
-        "store/*": ["src/store/*"],
-        "types": ["src/types"]
+        "utils/*": ["src/utils/*"],
+        "types": ["src/types"],
+        "mocks": ["/mocks"]
     },                             /* Skip type checking all .d.ts files. */
   }
 }

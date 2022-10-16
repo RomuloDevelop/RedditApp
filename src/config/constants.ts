@@ -1,3 +1,5 @@
+export const BASE_URL = 'https://api.reddit.com/r/pics';
+
 export enum POST_CATEGORY {
   CONTROVERSIAL = 'controversial',
   HOT = 'hot',

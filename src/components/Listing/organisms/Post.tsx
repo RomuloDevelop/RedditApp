@@ -17,12 +17,16 @@ type Props = {
 
 export const Post = ({post, onPress, animate, delay}: Props) => (
   <Animated.View
+    testID="postContainer"
     entering={
       animate
         ? FadeInRight.duration(ANIMATION_DURATION).delay(delay)
         : undefined
     }>
-    <TouchableOpacity style={styles.container} onPress={() => onPress(post)}>
+    <TouchableOpacity
+      testID="postBtn"
+      style={styles.container}
+      onPress={() => onPress(post)}>
       <Author {...post} />
       <Content {...post} />
       <Separator />

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {ITEMS_PER_PAGE, POSTS_LIMIT, POST_CATEGORY} from 'config/constants';
 import {getPosts} from 'services/index';
@@ -44,7 +45,6 @@ export const usePosts = (category: POST_CATEGORY) => {
   }, []);
 
   const addPage = useCallback(async () => {
-    console.log('addPage');
     if (!loading && posts.length < POSTS_LIMIT) {
       await fetchData(false);
     }
@@ -52,7 +52,6 @@ export const usePosts = (category: POST_CATEGORY) => {
 
   const refreshList = useCallback(async () => {
     if (!loading) {
-      console.log('refreshList');
       await fetchData();
     }
   }, [fetchData, loading]);
